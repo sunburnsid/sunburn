@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry style="align:center;">
+      <dl>
+        <dd><textarea type=text rows=1 cols=20 name=title placeholder="Title..."></textarea>
+        <dd><textarea name=text rows=20 cols=80 placeholder="Text..."></textarea>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  {% endif %}
+  <ul>
+
+  {% for entry in entries %}
+  <div class="boxed" style="background-color:#fafafa;">
+    <div class="container"><br>
+    
+    <img src="/static/img/clip.png" align="left"/> &nbsp; <h2>{{ entry.title }}</h2>
+    {% autoescape false%}
+    <p> {{ entry.text }} </p>
+    {% endautoescape %}
+    <p style="color:#595959;" align="left"> <img src="/static/img/clock.png" width="10"/> Posted on {{ entry.month }} {{ entry.day }}, {{ entry.year }}</p><br>
+    </div>
+  </div> 
+
+  <br><br>
+  {% else %}
+    <em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+
+  <style>
+textarea {
+  border: 3px solid #cccccc;
+  padding: 5px;
+  font-family: Tahoma, sans-serif;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+</style>
+{% endblock %}
