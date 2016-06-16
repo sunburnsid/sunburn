@@ -5,5 +5,8 @@ create table entries (
   text text not null,
   month text not null,
   day integer not null,
-  year integer not null
+  year integer not null,
+  link text not null,
+  comments blob,
+  likes integer not null
 );

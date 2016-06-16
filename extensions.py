@@ -23,3 +23,15 @@ def anglicize(nm):
 		return "November"
 	if nm == 12:
 		return "December"
+
+def linkify(title):
+	
+	link = []
+	
+	for letter in title:
+		if letter.isalnum():
+			link.append(letter)
+		elif letter == ' ':
+			link.append('-')
+
+	return ''.join(link).lower()

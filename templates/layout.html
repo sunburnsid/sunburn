@@ -8,19 +8,41 @@
 
 	<link href="/static/css/minimal.css" rel="stylesheet">
 	<style> .boxed {
-  border: 1px solid #ddd;
+  border: .5px solid #636363;
   }
+
+a:link {
+    color: #068481;
+}
+
+/* visited link */
+a:visited {
+    color: #068481;
+}
+
+/* mouse over link */
+a:hover {
+    color: #fc1501;
+}
+
+/* selected link */
+a:active {
+    color: #fc1501;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: #ccc;
+  background-image: url("/static/img/kazoo.jpg");
+  background-size: cover;
+  background-attachment: fixed;
   font-size: 16px;
 }
 
 .main {
   align: center;
-  background-color: #2b2b2b;
-  color: #F0F0F0;
+  background-color: #CD3301;
+  color: #F9F8F6;
   font-size: 30px;
   height: 40px;
   position: fixed;
@@ -32,24 +54,25 @@ body {
 
 .major {
   text-align: center;
-  color: #3d3d3d;
+  color: #dcdcdc;
   font-size: 100px;
   vertical-align: center;
+  -webkit-text-stroke: 1px black;
 }
 </style>
 
 </head>
-<body style="background-color:#F0F0F0;">
+<body>
 
 <div class="main"><br>
 a bowl full of Questions
 </div>
 
-<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="major"> how about vendetta <hr> </div>
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
-<div class="container">
+<div class="container" style="background-color:#dbdbdb; opacity: 0.95; border: 1px solid black;">
 	<div class="row" style="background-color:#FF6A6A;"><div class="col-12"><div class="container">
 		{% for message in get_flashed_messages() %}
     <div class = flash> {{ message }} </div>
@@ -58,21 +81,21 @@ a bowl full of Questions
 
     <div class="row">
 		<div class="col-9">
-			<p><img src="/static/img/mug.png" align="left"/> <h1> Just a blog.</h1></p>
-			<hr>
-			
 			{% block body %} {% endblock %}
 		</div>
 
-	    <div class="col-3" style="text-align:center;"> <br><br><br><br><br>
-			<h2>About The Author</h2>
+	   <div class="col-3" style="text-align:center;"> <br><br><br>
+      <div>
+			<h2 style="color:#4A4A4A;">About Me</h2>
+      <p><img src = "/static/img/android.png" width="175"></p>
 			<h4>Computer Programmer, Bullshit Detector</h4>
 			<p> Just a bunch of memoirs and memoir-inspired thoughts. Couldn't be too shabby, right?</p>
       <hr>
 			<p> >>> <span style="color:#00bde5;">sum</span> ( questions<span style="color:#ff005c;">**<span style="color:#0080ff;">2</span> for </span>fallacy <span style="color:#ff005c;">in</span> beliefs )</p>
 	    </div>
+    </div>
 	</div>
 	<hr>
-</div>
+</div>z<br><br>
 </body>
 </html>

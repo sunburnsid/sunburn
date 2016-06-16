@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
+<div class = "container">
+<p><img src ="/static/img/telescope16.png" align="left"/> <span style="font-size: 28px;color:#3f51b5;"> &nbsp; Welcome to SunburnBlogs.</span></p>
+</div>
+      <hr>
+
   {% if session.logged_in %}
+  <div class = "container">
     <form action="{{ url_for('add_entry') }}" method=post class=add-entry style="align:center;">
       <dl>
         <dd><textarea type=text rows=1 cols=20 name=title placeholder="Title..."></textarea>
@@ -8,18 +14,19 @@
         <dd><input type=submit value=Share>
       </dl>
     </form>
+  </div><br>
   {% endif %}
   <ul>
 
   {% for entry in entries %}
-  <div class="boxed" style="background-color:#fafafa;">
+  <div class="boxed" style="background-color:#fafafa; opacity: 1;">
     <div class="container"><br>
     
-    <img src="/static/img/clip.png" align="left"/> &nbsp; <h2>{{ entry.title }}</h2>
+    <img src="/static/img/clip.png" align="left"/> &nbsp; <h2> <a href="/articles/{{ entry.link }}"> {{ entry['title'] }} </a> </h2>
     {% autoescape false%}
-    <p> {{ entry.text }} </p>
+    <p> {{ entry['text'] }} </p>
     {% endautoescape %}
-    <p style="color:#595959;" align="left"> <img src="/static/img/clock.png" width="10"/> Posted on {{ entry.month }} {{ entry.day }}, {{ entry.year }}</p><br>
+    <p style="color:#595959;" align="left"> <img src="/static/img/clock.png" width="10"/> Posted on <span text-align="right"> <img src="/static/img/gas16.png" width="24"> {{ entry['likes'] }}</span></p><br>
     </div>
   </div> 
 
